@@ -26,25 +26,33 @@ It should return the installed Docker version.
 
 Step 2: Clone the Repository
 If you haven’t already, clone this project:
+
 git clone https://github.com/SandunDeSilva/Django-with-Docker-MySQL---Microservices-Architecture.git
+
 cd myproject
 
 Step 3: Build and Run the Containers
 To start the Django and MySQL services, run:
+
 docker-compose up --build
+
 This will:
 Start the MySQL database container.
 Build and start the Django application container.
 
 Step 4: Apply Migrations and Create Superuser
 Once the containers are running, open a new terminal and run:
+
 # Run makemigrations
+
 docker exec -it django_container python manage.py makemigrations
 
 # Apply migrations
+
 docker exec -it django_container python manage.py migrate
 
 # Create a superuser (follow the prompts)
+
 docker exec -it django_container python manage.py createsuperuser
 
 Step 5: Access the Application
