@@ -1,0 +1,54 @@
+# Python bytecode files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+venv/
+env/
+*.env
+env
+
+# Ignore all migration files
+**/migrations/*
+!**/migrations/__init__.py
+
+
+# Django settings and secret files
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+
+# MySQL data directory
+mysql_data/
+
+# Docker-related files
+docker-compose.override.yml
+Dockerfile*
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.swp
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Pipenv
+Pipfile.lock
+
+# Node.js dependencies if any
+node_modules/
+
+# Coverage reports
+.coverage
+*.cover
+*.py,cover
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+.vscode

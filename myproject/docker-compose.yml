@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql_container
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ""
+      MYSQL_DATABASE: django_with_docker
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ""
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  web:
+    build: .
+    container_name: django_container
+    restart: always
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    volumes:
+      - .:/app
+    environment:
+      - DEBUG=True
+    command: gunicorn --workers=3 --bind 0.0.0.0:8000 myproject.wsgi:application
+
+volumes:
+  mysql_data:
